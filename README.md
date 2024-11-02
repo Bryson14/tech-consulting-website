@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+## Deploy
+
+- `git subtree push --prefix dist origin gh-pages` to move /dist
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

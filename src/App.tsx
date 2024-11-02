@@ -7,24 +7,29 @@ import PageContact from "./routes/contact/page";
 import PageTerms from "./routes/terms/page";
 
 function App() {
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
+        path: "/about",
+        element: <PageAbout />,
+      },
+      {
+        path: "/contact",
+        element: <PageContact />,
+      },
+      {
+        path: "/terms",
+        element: <PageTerms />,
+      },
+    ],
     {
-      path: "/",
-      element: <LandingPage />,
-    },
-    {
-      path: "/about",
-      element: <PageAbout />,
-    },
-    {
-      path: "/contact",
-      element: <PageContact />,
-    },
-    {
-      path: "/terms",
-      element: <PageTerms />,
-    },
-  ]);
+      basename: process.env.PUBLIC_URL,
+    }
+  );
 
   return <RouterProvider router={router} />;
 }
