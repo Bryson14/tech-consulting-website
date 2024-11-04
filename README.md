@@ -2,7 +2,7 @@
 
 ## Deploy
 
-- `git subtree push --prefix dist origin gh-pages` to move /dist
+- Build locally, zipped, then dropped into aws amplify [staging site](https://staging.d1sbayr0uz23ik.amplifyapp.com/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
