@@ -3,10 +3,10 @@ import Header from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Users, Trophy, ArrowUpRight } from "lucide-react";
-import crockerLogo from "/clients/crocker-ventures/crocker-ventures-logo.jpeg";
-import sublimeLogo from "/clients/sublime-decor/sublime-logo.jpeg";
-import tmtLogo from "/clients/the-massapequa-tutor/tmt-logo.png";
-import sorensonLogo from "/clients/sorenson-legacy-foundation/slf-logo.png";
+import crockerLogo from "/clients/crocker-ventures/crocker-ventures-logo.webp";
+import sublimeLogo from "/clients/sublime-decor/sublime-logo.webp";
+import tmtLogo from "/clients/the-massapequa-tutor/tmt-logo.webp";
+import sorensonLogo from "/clients/sorenson-legacy-foundation/slf-logo.webp";
 import { Link } from "react-router-dom";
 
 // Keep existing client data

@@ -1,6 +1,6 @@
 import ClientPage from "@/components/client-details";
-import landingPage from "/clients/crocker-ventures/landing_page.jpeg";
-import logo from "/clients/crocker-ventures/crocker-ventures-logo.jpeg";
+import landingPage from "/clients/crocker-ventures/landing_page.webp";
+import logo from "/clients/crocker-ventures/crocker-ventures-logo.webp";
 
 export default function CrockerVentures() {
   const clientData = {

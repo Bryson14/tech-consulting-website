@@ -1,7 +1,7 @@
 import ClientPage from "@/components/client-details";
-import landingPage from "/clients/sublime-decor/landing-page-sublime.jpeg";
-import services from "/clients/sublime-decor/services-sublime.jpeg";
-import logo from "/clients/sublime-decor/sublime-logo.jpeg";
+import landingPage from "/clients/sublime-decor/landing-page-sublime.webp";
+import services from "/clients/sublime-decor/services-sublime.webp";
+import logo from "/clients/sublime-decor/sublime-logo.webp";
 
 export default function SublimeEventsDecor() {
   const clientData = {

@@ -1,7 +1,7 @@
 import ClientPage from "@/components/client-details";
-import landingPage from "/clients/sorenson-legacy-foundation/landing-sorenson.jpeg";
-import logo from "/clients/sorenson-legacy-foundation/slf-logo.png";
-import education from "/clients/sorenson-legacy-foundation/education-sorenson.jpeg";
+import landingPage from "/clients/sorenson-legacy-foundation/landing-sorenson.webp";
+import logo from "/clients/sorenson-legacy-foundation/slf-logo.webp";
+import education from "/clients/sorenson-legacy-foundation/education-sorenson.webp";
 
 export default function SorensonLegacyFoundation() {
   const clientData = {
