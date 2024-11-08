@@ -1,38 +1,68 @@
-import { Laptop } from "lucide-react";
+import { useState } from "react";
+import { Laptop, Menu, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Showcase", href: "/clients" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
-    <header className="container px-4 lg:px-6 h-14 flex items-center border-b">
-      <a className="flex items-center justify-center" href="/">
-        <Laptop className="h-6 w-6 mr-2" />
-        <span className="font-bold">Smeiling Tech Consulting</span>
-      </a>
-      <nav className="ml-auto flex gap-4 sm:gap-6">
-        <a
-          className="text-sm font-medium hover:underline underline-offset-4"
-          href="/"
-        >
-          Home
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container px-4 lg:px-6 h-14 flex items-center">
+        <a className="flex items-center justify-center" href="/">
+          <Laptop className="h-6 w-6 mr-2" />
+          <span className="font-bold">Smiling Tech Consulting</span>
         </a>
-        <a
-          className="text-sm font-medium hover:underline underline-offset-4"
-          href="/about"
-        >
-          About
-        </a>
-        <a
-          className="text-sm font-medium hover:underline underline-offset-4"
-          href="/clients"
-        >
-          Showcase
-        </a>
-        <a
-          className="text-sm font-medium hover:underline underline-offset-4"
-          href="/contact"
-        >
-          Contact
-        </a>
-      </nav>
+        
+        {/* Desktop Navigation */}
+        <nav className="ml-auto hidden md:flex gap-6">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              className="text-sm font-medium transition-colors hover:text-primary"
+              href={item.href}
+            >
+              {item.name}
+            </a>
+          ))}
+        </nav>
+        
+        {/* Mobile Navigation */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild className="ml-auto md:hidden">
+            <Button variant="ghost" size="icon" className="relative">
+              <Menu className={`h-6 w-6 transition-all ${isOpen ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`} />
+              <X className={`absolute h-6 w-6 transition-all ${isOpen ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"}`} />
+              <span className="sr-only">Toggle Menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[240px] sm:w-[300px]">
+            <nav className="flex flex-col gap-4 mt-6">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-lg font-medium transition-colors hover:text-primary"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
 }

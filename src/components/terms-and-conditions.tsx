@@ -13,7 +13,7 @@ export default function TermsAndConditionsPage() {
             </h1>
             <div className="prose prose-lg max-w-none space-y-6 text-left">
               <p className="text-base leading-relaxed">
-                Welcome to Smeiling Tech Consulting. These Terms and Conditions
+                Welcome to Smiling Tech Consulting. These Terms and Conditions
                 govern your use of our website and services. By accessing or
                 using our website and services, you agree to be bound by these
                 Terms and Conditions.
@@ -34,7 +34,7 @@ export default function TermsAndConditionsPage() {
               </h2>
               <p className="text-base leading-relaxed">
                 The content, features, and functionality of our website and
-                services are owned by Smeiling Tech Consulting and are protected
+                services are owned by Smiling Tech Consulting and are protected
                 by international copyright, trademark, patent, trade secret, and
                 other intellectual property or proprietary rights laws.
               </p>
@@ -54,7 +54,7 @@ export default function TermsAndConditionsPage() {
                 4. Limitation of Liability
               </h2>
               <p className="text-base leading-relaxed">
-                In no event shall Smeiling Tech Consulting, nor its directors,
+                In no event shall Smiling Tech Consulting, nor its directors,
                 employees, partners, agents, suppliers, or affiliates, be liable
                 for any indirect, incidental, special, consequential or punitive
                 damages, including without limitation, loss of profits, data,

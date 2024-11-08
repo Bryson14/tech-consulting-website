@@ -15,7 +15,7 @@ export default function AboutPage() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  About Smeiling Tech Consulting
+                  About Smiling Tech Consulting
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                   Bridging the gap between technology and business growth
@@ -31,7 +31,7 @@ export default function AboutPage() {
                 src={brysonSmiling}
                 width={400}
                 height={600}
-                alt="Founder of Smeiling Tech Consulting"
+                alt="Founder of Smiling Tech Consulting"
                 className="mx-auto rounded-xl object-contain sm:w-full lg:order-last"
               />
               <div className="flex flex-col justify-center space-y-4">
