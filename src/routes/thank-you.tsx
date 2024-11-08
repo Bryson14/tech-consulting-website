@@ -1,19 +1,17 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import ThankYou from "@/components/thank-you";
+import { Helmet } from "react-helmet";
 
 export default function ThankYouPage() {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <h1 className="text-3xl font-bold">Thank You!</h1>
-            <p className="text-gray-600">
-              We've received your message and will get back to you soon.
-            </p>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <>
+      <Helmet>
+        <title>Thank You - Smiling Tech Consulting</title>
+        <meta
+          name="description"
+          content="Thank you for reaching out to Smiling Tech Consulting. We've received your message and will respond within 24 hours. We look forward to discussing your web development needs."
+        />
+      </Helmet>
+      <ThankYou />
+    </>
+  );
+}

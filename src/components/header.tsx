@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { Laptop, Menu, X } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -16,48 +13,52 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container px-4 lg:px-6 h-14 flex items-center">
-        <a className="flex items-center justify-center" href="/">
+        <Link className="flex items-center justify-center" to="/">
           <Laptop className="h-6 w-6 mr-2" />
           <span className="font-bold">Smiling Tech Consulting</span>
-        </a>
-        
+        </Link>
+
         {/* Desktop Navigation */}
         <nav className="ml-auto hidden md:flex gap-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
               className="text-sm font-medium transition-colors hover:text-primary"
-              href={item.href}
+              to={item.href}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
-        
+
         {/* Mobile Navigation */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="ml-auto md:hidden">
             <Button variant="ghost" size="icon" className="relative">
-              <Menu className={`h-6 w-6 transition-all ${isOpen ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`} />
-              <X className={`absolute h-6 w-6 transition-all ${isOpen ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"}`} />
+              <Menu
+                className={`h-6 w-6 transition-all ${isOpen ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`}
+              />
+              <X
+                className={`absolute h-6 w-6 transition-all ${isOpen ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"}`}
+              />
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[240px] sm:w-[300px]">
             <nav className="flex flex-col gap-4 mt-6">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-lg font-medium transition-colors hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </SheetContent>

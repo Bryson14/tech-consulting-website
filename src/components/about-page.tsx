@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Laptop, Users, Briefcase, Code, CheckCircle } from "lucide-react";
 import Header from "@/components/header";
-import brysonSmiling from "/bryson-smiling-lake.jpg";
+import brysonSmiling from "/bryson-smiling-lake.webp";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 export default function AboutPage() {
   return (
@@ -160,7 +161,7 @@ export default function AboutPage() {
               </div>
               <div className="w-full max-w-sm space-y-2">
                 <Button className="w-full" asChild>
-                  <a href="/contact">Contact Us</a>
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>
             </div>

@@ -40,13 +40,13 @@ export default function ContactPage() {
     email: "",
     phone: "",
     service: "",
-    notes: ""
+    notes: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
   const validateForm = () => {
     const newErrors: FormErrors = {};
-    
+
     // Name validation
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
@@ -79,36 +79,36 @@ export default function ContactPage() {
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error when user starts typing
     // @ts-ignore
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: ""
+        [name]: "",
       }));
     }
   };
 
   const handleServiceChange = (value: any) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      service: value
+      service: value,
     }));
     if (errors.service) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        service: ""
+        service: "",
       }));
     }
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -223,7 +223,10 @@ export default function ContactPage() {
                         value={formData.service}
                         onValueChange={handleServiceChange}
                       >
-                        <SelectTrigger id="service" className={errors.service ? "border-red-500" : ""}>
+                        <SelectTrigger
+                          id="service"
+                          className={errors.service ? "border-red-500" : ""}
+                        >
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
@@ -257,8 +260,8 @@ export default function ContactPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button 
-                    className="w-full" 
+                  <Button
+                    className="w-full"
                     type="submit"
                     disabled={isSubmitting}
                   >

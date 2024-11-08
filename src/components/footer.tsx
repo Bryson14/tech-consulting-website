@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full container shrink-0 items-center px-4 md:px-6 border-t">
@@ -5,12 +6,18 @@ export default function Footer() {
         © 2024 Smiling Tech Consulting. All rights reserved.
       </p>
       <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-        <a className="text-xs hover:underline underline-offset-4" href="/terms">
+        <Link
+          className="text-xs hover:underline underline-offset-4"
+          to="/terms"
+        >
           Terms of Service
-        </a>
-        <a className="text-xs hover:underline underline-offset-4" href="/contact">
+        </Link>
+        <Link
+          className="text-xs hover:underline underline-offset-4"
+          to="/contact"
+        >
           Contact
-        </a>
+        </Link>
       </nav>
     </footer>
   );

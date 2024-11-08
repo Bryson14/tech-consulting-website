@@ -8,5 +8,4 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Contact Forms
 
-I am using Formspree free tier of 50 submissions a month. App is `mdkogvoy` with account bmeilingsports@gmail.com. 
-
+I am using Formspree free tier of 50 submissions a month. App is `mdkogvoy` with account <bmeilingsports@gmail.com>.

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Footer from "./footer";
 import Header from "./header";
+import { Link } from "react-router-dom";
 
 export interface ClientDetails {
   name: string;
@@ -34,13 +35,13 @@ export default function ClientPage(client: ClientDetails) {
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 bg-white border-b">
           <div className="container px-4 md:px-6">
-            <a
-              href="/clients"
+            <Link
+              to="/clients"
               className="inline-flex items-center mb-8 text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Clients
-            </a>
+            </Link>
             <div className="grid gap-8 lg:grid-cols-2 items-start">
               <div>
                 <div className="flex items-center gap-4 mb-6">
@@ -75,13 +76,13 @@ export default function ClientPage(client: ClientDetails) {
                   </Badge>
                 </div>
                 <Button asChild size="lg" className="mb-8">
-                  <a
-                    href={client.url}
+                  <Link
+                    to={client.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Visit Live Site
-                  </a>
+                  </Link>
                 </Button>
               </div>
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">

@@ -7,6 +7,7 @@ import crockerLogo from "/clients/crocker-ventures/crocker-ventures-logo.jpeg";
 import sublimeLogo from "/clients/sublime-decor/sublime-logo.jpeg";
 import tmtLogo from "/clients/the-massapequa-tutor/tmt-logo.png";
 import sorensonLogo from "/clients/sorenson-legacy-foundation/slf-logo.png";
+import { Link } from "react-router-dom";
 
 // Keep existing client data
 const clients = [
@@ -113,9 +114,9 @@ export default function ClientShowcase() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {clients.map((client) => (
-                <a
+                <Link
                   key={client.id}
-                  href={`/clients/${client.id}`}
+                  to={`/clients/${client.id}`}
                   className="group"
                 >
                   <Card className="hover:shadow-lg transition-all duration-300 h-full">
@@ -158,7 +159,7 @@ export default function ClientShowcase() {
                       </div>
                     </CardContent>
                   </Card>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

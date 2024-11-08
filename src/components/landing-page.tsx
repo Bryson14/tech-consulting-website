@@ -8,6 +8,7 @@ import {
 import { Laptop, Cloud, Search, Code } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -28,7 +29,7 @@ export default function LandingPage() {
               </div>
               <div className="space-x-4">
                 <Button asChild>
-                  <a href="/contact">Get Started</a>
+                  <Link to="/contact">Get Started</Link>
                 </Button>
                 <Button variant="outline" asChild>
                   <a href="#services">Our Services</a>
@@ -99,7 +100,7 @@ export default function LandingPage() {
               </div>
               <div className="w-full max-w-sm space-y-2">
                 <Button className="w-full" asChild>
-                  <a href="mailto:contact@smeilingtech.com">Contact Us</a>
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>
             </div>
