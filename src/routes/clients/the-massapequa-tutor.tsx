@@ -8,7 +8,7 @@ import tutorApp from "/clients/the-massapequa-tutor/tutor-app.jpeg";
 import tutorDashboard from "/clients/the-massapequa-tutor/tutor-dashboard.jpeg";
 import tutors from "/clients/the-massapequa-tutor/tutors.jpeg";
 
-export default function TheMassapequatutor() {
+export default function TheMassapequaTutor() {
   const clientData = {
     name: "The Massapequa Tutor",
     description:

@@ -6,58 +6,70 @@ import { Building2, Users, Trophy, ArrowUpRight } from "lucide-react";
 import crockerLogo from "/clients/crocker-ventures/crocker-ventures-logo.jpeg";
 import sublimeLogo from "/clients/sublime-decor/sublime-logo.jpeg";
 import tmtLogo from "/clients/the-massapequa-tutor/tmt-logo.png";
-
+import sorensonLogo from "/clients/sorenson-legacy-foundation/slf-logo.png";
 
 // Keep existing client data
 const clients = [
   {
-    id: "tmt",
+    id: "the-massapequa-tutor",
     name: "The Massapequa Tutor",
     description: "Compelling Peer Tutors for the New York Area",
     image: tmtLogo,
     url: "https://themassapequatutor.com",
     tags: ["Education", "Local Business"],
     services: ["Web Development", "Digital Marketing"],
-    yearStarted: "2023"
+    yearStarted: "2023",
   },
   {
     id: "sublime-events",
     name: "Sublime Events and Decor",
-    description: "Beautiful local parties and decor",
+    description: "Beautiful local parties and decor in South Bend, Indiana",
     image: sublimeLogo,
     url: "https://sublimeeventsdecor.com",
     tags: ["Events", "Local Business"],
     services: ["Website Design", "Brand Identity"],
-    yearStarted: "2023"
+    yearStarted: "2024",
   },
   {
     id: "crocker-ventures",
     name: "Crocker Ventures",
-    description: "Private Firm investing in life science, healthcare, and emerging technology",
+    description:
+      "Private Firm investing in life science, healthcare, and emerging technology",
     image: crockerLogo,
     url: "https://crockerventures.com",
     tags: ["Investment", "Healthcare"],
     services: ["Web Development", "Digital Strategy"],
-    yearStarted: "2023"
-  }
+    yearStarted: "2024",
+  },
+  {
+    id: "sorenson-legacy-foundation",
+    name: "Sorenson Legacy Foundation",
+    description:
+      "Non Profit giving back to the community, education, healthcare, innovation in Utah",
+    image: sorensonLogo,
+    url: "https://sorensonlegacyfoundation.com",
+    tags: ["Non-Profit", "Community"],
+    services: ["Web Development", "Ease of Use"],
+    yearStarted: "2023",
+  },
 ];
 
 const stats = [
   {
     icon: <Building2 className="w-6 h-6" />,
-    value: "3",
-    label: "Active Clients"
+    value: "4",
+    label: "Active Clients",
   },
   {
     icon: <Users className="w-6 h-6" />,
     value: "100%",
-    label: "Client Satisfaction"
+    label: "Client Satisfaction",
   },
   {
     icon: <Trophy className="w-6 h-6" />,
     value: "2023",
-    label: "Founded"
-  }
+    label: "Founded",
+  },
 ];
 
 export default function ClientShowcase() {
@@ -66,16 +78,17 @@ export default function ClientShowcase() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="w-full py-12 md:py-24 bg-gradient-to-b from-gray-100 to-white">
           <div className="container px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none mb-4">
                 Trusted by Industry Leaders
               </h1>
               <p className="text-gray-500 md:text-xl mb-8">
-                We partner with innovative businesses to create exceptional digital experiences
+                We partner with innovative businesses to create exceptional
+                digital experiences
               </p>
-              
+
               {/* Stats */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 {stats.map((stat, index) => (
@@ -100,8 +113,8 @@ export default function ClientShowcase() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {clients.map((client) => (
-                <a 
-                  key={client.id} 
+                <a
+                  key={client.id}
                   href={`/clients/${client.id}`}
                   className="group"
                 >
@@ -131,7 +144,9 @@ export default function ClientShowcase() {
                     <CardContent className="space-y-4">
                       <p className="text-gray-500">{client.description}</p>
                       <div className="pt-4 border-t">
-                        <p className="font-medium text-sm">Services Provided:</p>
+                        <p className="font-medium text-sm">
+                          Services Provided:
+                        </p>
                         <ul className="mt-2 text-sm text-gray-500">
                           {client.services.map((service) => (
                             <li key={service} className="flex items-center">

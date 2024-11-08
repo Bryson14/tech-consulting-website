@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+
 import {
   Select,
   SelectContent,
@@ -17,10 +18,47 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "./footer";
+import { useNavigate } from "react-router-dom";
+
+const formspreeApi = "https://formspree.io/f/mdkogvoy";
 
 export default function ContactPage() {
+  const navigate = useNavigate();
+  const [service, setService] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.target);
+      formData.append("service", service); // Manually add service since Select is controlled
+
+      const response = await fetch(formspreeApi, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        navigate("/thank-you"); // Redirect to thank you page
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting the form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -49,13 +87,14 @@ export default function ContactPage() {
                   Please provide your details and we'll be in touch shortly.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <form>
+              <form onSubmit={handleSubmit}>
+                <CardContent>
                   <div className="grid gap-4">
                     <div className="grid gap-2">
                       <Label htmlFor="name">Name</Label>
                       <Input
                         id="name"
+                        name="name"
                         placeholder="Enter your full name"
                         required
                       />
@@ -64,6 +103,7 @@ export default function ContactPage() {
                       <Label htmlFor="email">Email</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="Enter your email"
                         required
@@ -73,6 +113,7 @@ export default function ContactPage() {
                       <Label htmlFor="phone">Phone Number</Label>
                       <Input
                         id="phone"
+                        name="phone"
                         type="tel"
                         placeholder="Enter your phone number"
                         required
@@ -80,7 +121,11 @@ export default function ContactPage() {
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="service">Desired Service</Label>
-                      <Select required>
+                      <Select
+                        value={service}
+                        onValueChange={setService}
+                        required
+                      >
                         <SelectTrigger id="service">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
@@ -103,15 +148,22 @@ export default function ContactPage() {
                       <Label htmlFor="notes">Additional Notes</Label>
                       <Textarea
                         id="notes"
+                        name="notes"
                         placeholder="Any additional information or questions?"
                       />
                     </div>
                   </div>
-                </form>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">Submit</Button>
-              </CardFooter>
+                </CardContent>
+                <CardFooter>
+                  <Button 
+                    className="w-full" 
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </Button>
+                </CardFooter>
+              </form>
             </Card>
           </div>
         </section>

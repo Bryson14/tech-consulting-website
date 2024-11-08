@@ -1,14 +1,16 @@
 import "./App.css";
 import LandingPage from "./components/landing-page";
-import PageAbout from "./routes/about/page";
+import PageAbout from "./routes/about";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PageContact from "./routes/contact/page";
+import PageContact from "./routes/contact";
 import PageTerms from "./routes/terms/page";
 import ClientShowcase from "./routes/clients/client-showcase";
 import CrockerVentures from "./routes/clients/crocker-ventures";
 import SublimeEventsDecor from "./routes/clients/sublime-events-decor";
-import TheMassapequatutor from "./routes/clients/the-massapequa-tutor";
+import TheMassapequaTutor from "./routes/clients/the-massapequa-tutor";
+import SorensonLegacyFoundation from "./routes/clients/sorenson-legacy-foundation";
+import ThankYouPage from "./routes/thank-you";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +25,10 @@ function App() {
     {
       path: "/contact",
       element: <PageContact />,
+    },
+    {
+      path: "/thank-you",
+      element: <ThankYouPage />,
     },
     {
       path: "/terms",
@@ -41,8 +47,12 @@ function App() {
       element: <SublimeEventsDecor />,
     },
     {
-      path: "/clients/tmt",
-      element: <TheMassapequatutor />,
+      path: "/clients/the-massapequa-tutor",
+      element: <TheMassapequaTutor />,
+    },
+    {
+      path: "/clients/sorenson-legacy-foundation",
+      element: <SorensonLegacyFoundation />,
     },
   ]);
 
