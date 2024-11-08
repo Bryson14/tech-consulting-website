@@ -1,36 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Laptop, Users, Briefcase, Code, CheckCircle } from "lucide-react";
+import Header from "@/components/header";
+import brysonSmiling from "/bryson-smiling-lake.jpg";
+import Footer from "./footer";
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <a className="flex items-center justify-center" href="/">
-          <Laptop className="h-6 w-6 mr-2" />
-          <span className="font-bold">Smeiling Tech Consulting</span>
-        </a>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <a
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="/"
-          >
-            Home
-          </a>
-          <a
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#team"
-          >
-            Our Team
-          </a>
-          <a
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#values"
-          >
-            Our Values
-          </a>
-        </nav>
-      </header>
+      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -50,11 +28,11 @@ export default function AboutPage() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <img
-                src="/placeholder.svg?height=400&width=600"
-                width={600}
-                height={400}
+                src={brysonSmiling}
+                width={400}
+                height={600}
                 alt="Founder of Smeiling Tech Consulting"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                className="mx-auto rounded-xl object-contain sm:w-full lg:order-last"
               />
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
@@ -189,19 +167,7 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          © 2024 Smeiling Tech Consulting. All rights reserved.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <a className="text-xs hover:underline underline-offset-4" href="/terms">
-            Terms of Service
-          </a>
-          <a className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </a>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }
