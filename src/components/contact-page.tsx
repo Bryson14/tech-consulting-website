@@ -10,7 +10,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-
 import {
   Select,
   SelectContent,
@@ -25,29 +24,113 @@ import { useNavigate } from "react-router-dom";
 
 const formspreeApi = "https://formspree.io/f/mdkogvoy";
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  service?: string;
+  notes?: string;
+}
+
 export default function ContactPage() {
   const navigate = useNavigate();
-  const [service, setService] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    notes: ""
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  const validateForm = () => {
+    const newErrors: FormErrors = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Phone validation
+    const phoneRegex = /^\+?[\d\s-]{10,}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    // Service validation
+    if (!formData.service) {
+      newErrors.service = "Please select a service";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    // Clear error when user starts typing
+    // @ts-ignore
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ""
+      }));
+    }
+  };
+
+  const handleServiceChange = (value: any) => {
+    setFormData(prev => ({
+      ...prev,
+      service: value
+    }));
+    if (errors.service) {
+      setErrors(prev => ({
+        ...prev,
+        service: ""
+      }));
+    }
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const formData = new FormData(e.target);
-      formData.append("service", service); // Manually add service since Select is controlled
+      const formDataToSend = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
 
       const response = await fetch(formspreeApi, {
         method: "POST",
-        body: formData,
+        body: formDataToSend,
         headers: {
           Accept: "application/json",
         },
       });
 
       if (response.ok) {
-        navigate("/thank-you"); // Redirect to thank you page
+        navigate("/thank-you");
       } else {
         throw new Error("Failed to submit form");
       }
@@ -91,42 +174,56 @@ export default function ContactPage() {
                 <CardContent>
                   <div className="grid gap-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="name">Name</Label>
+                      <Label htmlFor="name">Name *</Label>
                       <Input
                         id="name"
                         name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Enter your full name"
-                        required
+                        className={errors.name ? "border-red-500" : ""}
                       />
+                      {errors.name && (
+                        <p className="text-sm text-red-500">{errors.name}</p>
+                      )}
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">Email *</Label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="Enter your email"
-                        required
+                        className={errors.email ? "border-red-500" : ""}
                       />
+                      {errors.email && (
+                        <p className="text-sm text-red-500">{errors.email}</p>
+                      )}
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">Phone Number *</Label>
                       <Input
                         id="phone"
                         name="phone"
                         type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
                         placeholder="Enter your phone number"
-                        required
+                        className={errors.phone ? "border-red-500" : ""}
                       />
+                      {errors.phone && (
+                        <p className="text-sm text-red-500">{errors.phone}</p>
+                      )}
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="service">Desired Service</Label>
+                      <Label htmlFor="service">Desired Service *</Label>
                       <Select
-                        value={service}
-                        onValueChange={setService}
-                        required
+                        value={formData.service}
+                        onValueChange={handleServiceChange}
                       >
-                        <SelectTrigger id="service">
+                        <SelectTrigger id="service" className={errors.service ? "border-red-500" : ""}>
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
@@ -143,12 +240,17 @@ export default function ContactPage() {
                           <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.service && (
+                        <p className="text-sm text-red-500">{errors.service}</p>
+                      )}
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="notes">Additional Notes</Label>
                       <Textarea
                         id="notes"
                         name="notes"
+                        value={formData.notes}
+                        onChange={handleChange}
                         placeholder="Any additional information or questions?"
                       />
                     </div>
