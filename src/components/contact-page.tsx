@@ -39,11 +39,19 @@ export default function ContactPage() {
     phone: "",
     service: "",
     notes: "",
+    website: "", // Honeypot field
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
   const validateForm = () => {
     const newErrors: FormErrors = {};
+
+    // Honeypot check
+    if (formData.website) {
+      // If honeypot is filled, simulate an error without revealing it's a bot check
+      alert("Something went wrong, but try contact info@smiling.dev");
+      return false;
+    }
 
     // Name validation
     if (!formData.name.trim()) {
@@ -82,8 +90,7 @@ export default function ContactPage() {
       [name]: value,
     }));
     // Clear error when user starts typing
-    // @ts-ignore
-    if (errors[name]) {
+    if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({
         ...prev,
         [name]: "",
@@ -115,7 +122,9 @@ export default function ContactPage() {
 
     try {
       const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
+      // Only send legitimate fields, exclude the honeypot
+      const { website, ...legitFormData } = formData;
+      Object.entries(legitFormData).forEach(([key, value]) => {
         formDataToSend.append(key, value);
       });
 
@@ -170,6 +179,20 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit}>
                 <CardContent>
                   <div className="grid gap-4">
+                    {/* Honeypot field - hidden from real users */}
+                    <div className="absolute opacity-0 -left-[9999px] -top-[9999px] h-0 w-0 overflow-hidden">
+                      <Label htmlFor="website">Website</Label>
+                      <Input
+                        id="website"
+                        name="website"
+                        type="text"
+                        value={formData.website}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
                     <div className="grid gap-2">
                       <Label htmlFor="name">Name *</Label>
                       <Input
