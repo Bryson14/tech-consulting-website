@@ -9,8 +9,6 @@ import {
   Trophy,
   Wrench,
 } from "lucide-react";
-import Footer from "./footer";
-import Header from "./header";
 import { Link } from "react-router-dom";
 
 export interface ClientDetails {
@@ -30,7 +28,6 @@ export default function ClientPage(client: ClientDetails) {
   const longDescSections = client.longDescription.split("\n");
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 bg-gray-50">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 bg-white border-b">
@@ -207,7 +204,6 @@ export default function ClientPage(client: ClientDetails) {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

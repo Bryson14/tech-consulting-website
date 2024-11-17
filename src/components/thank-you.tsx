@@ -1,10 +1,6 @@
-import Footer from "./footer";
-import Header from "./header";
-
 export default function ThankYou() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 flex items-center justify-center">
         <div className="text-center space-y-4">
           <h1 className="text-3xl font-bold">Thank You!</h1>
@@ -13,7 +9,6 @@ export default function ThankYou() {
           </p>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -1,15 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Laptop, Users, Briefcase, Code, CheckCircle } from "lucide-react";
-import Header from "@/components/header";
 import brysonSmiling from "/bryson-smiling-lake.webp";
-import Footer from "./footer";
 import { Link } from "react-router-dom";
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -168,7 +165,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

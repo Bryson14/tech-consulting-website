@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container px-4 lg:px-6 h-14 flex items-center">
+      <div className="container mx-auto max-w-[1400px] flex items-center justify-between h-14 px-8">
         <Link className="flex items-center justify-center" to="/">
           <Laptop className="h-6 w-6 mr-2" />
           <span className="font-bold">Smiling Tech Consulting</span>
@@ -40,7 +40,7 @@ export default function Header() {
           <SheetTrigger asChild className="ml-auto md:hidden">
             <Button variant="ghost" size="icon" className="relative">
               <Menu
-                className={`h-6 w-6 transition-all ${isOpen ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`}
+                className={`h-8 w-8 transition-all ${isOpen ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`}
               />
               <X
                 className={`absolute h-6 w-6 transition-all ${isOpen ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"}`}

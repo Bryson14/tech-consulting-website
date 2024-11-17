@@ -6,14 +6,11 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Laptop, Cloud, Search, Code } from "lucide-react";
-import Header from "@/components/header";
-import Footer from "./footer";
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
@@ -68,7 +65,7 @@ export default function LandingPage() {
               <Card>
                 <CardHeader>
                   <Cloud className="h-6 w-6 mb-2" />
-                  <CardTitle>Cloud & App Development</CardTitle>
+                  <CardTitle>Cloud & Backend Development</CardTitle>
                   <CardDescription>
                     Scalable cloud solutions and app creation
                   </CardDescription>
@@ -107,7 +104,6 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

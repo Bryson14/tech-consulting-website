@@ -24,6 +24,7 @@ const ClientPages = {
   SublimeEventsDecor: lazy(
     () => import("./routes/clients/sublime-events-decor")
   ),
+  AvalLegal: lazy(() => import("./routes/clients/aval-legal")),
   MassapequaTutor: lazy(() => import("./routes/clients/the-massapequa-tutor")),
   SorensonLegacy: lazy(
     () => import("./routes/clients/sorenson-legacy-foundation")
@@ -109,6 +110,14 @@ function App() {
           element: (
             <Suspense fallback={<LoadingSpinner />}>
               <ClientPages.SorensonLegacy />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/clients/aval-legal",
+          element: (
+            <Suspense fallback={<LoadingSpinner />}>
+              <ClientPages.AvalLegal />
             </Suspense>
           ),
         },

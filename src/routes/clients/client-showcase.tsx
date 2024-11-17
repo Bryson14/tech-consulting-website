@@ -1,5 +1,3 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Users, Trophy, ArrowUpRight } from "lucide-react";
@@ -7,6 +5,7 @@ import crockerLogo from "/clients/crocker-ventures/crocker-ventures-logo.webp";
 import sublimeLogo from "/clients/sublime-decor/sublime-logo.webp";
 import tmtLogo from "/clients/the-massapequa-tutor/tmt-logo.webp";
 import sorensonLogo from "/clients/sorenson-legacy-foundation/slf-logo.webp";
+import avalLogo from "/clients/aval-legal/aval.webp";
 import { Link } from "react-router-dom";
 
 // Keep existing client data
@@ -53,13 +52,24 @@ const clients = [
     services: ["Web Development", "Ease of Use"],
     yearStarted: "2023",
   },
+  {
+    id: "aval-legal",
+    name: "Aval Legal",
+    description:
+      "A innovative Startup searching to intelligently search for Legal talent in and outside of large firms.",
+    image: avalLogo,
+    url: "https://www.avallegal.com/",
+    tags: ["AI Search", "Startup"],
+    services: ["Cloud Development", "Web Development"],
+    yearStarted: "2023",
+  },
 ];
 
 const stats = [
   {
     icon: <Building2 className="w-6 h-6" />,
-    value: "4",
-    label: "Active Clients",
+    value: "5",
+    label: "Active & Past Clients",
   },
   {
     icon: <Users className="w-6 h-6" />,
@@ -76,7 +86,6 @@ const stats = [
 export default function ClientShowcase() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 bg-gradient-to-b from-gray-100 to-white">
@@ -165,7 +174,6 @@ export default function ClientShowcase() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -1,10 +1,6 @@
-import Footer from "./footer";
-import Header from "./header";
-
 export default function TermsAndConditionsPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
@@ -102,7 +98,6 @@ export default function TermsAndConditionsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

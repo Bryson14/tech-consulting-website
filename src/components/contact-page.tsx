@@ -18,8 +18,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import Header from "@/components/header";
-import Footer from "./footer";
 import { useNavigate } from "react-router-dom";
 
 const formspreeApi = "https://formspree.io/f/mdkogvoy";
@@ -144,7 +142,6 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -237,7 +234,7 @@ export default function ContactPage() {
                             Tech Consulting
                           </SelectItem>
                           <SelectItem value="cloud">
-                            Cloud & App Development
+                            Cloud & Backend Development
                           </SelectItem>
                           <SelectItem value="seo">SEO</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
@@ -273,7 +270,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }
