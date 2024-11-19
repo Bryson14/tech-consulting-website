@@ -44,42 +44,65 @@ export default function LandingPage() {
               Our Services
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <Card>
-                <CardHeader>
-                  <Code className="h-6 w-6 mb-2" />
-                  <CardTitle>Website Development</CardTitle>
-                  <CardDescription>
-                    Custom websites tailored to your needs
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <Laptop className="h-6 w-6 mb-2" />
-                  <CardTitle>Tech Consulting</CardTitle>
-                  <CardDescription>
-                    Expert advice on your tech stack
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <Cloud className="h-6 w-6 mb-2" />
-                  <CardTitle>Cloud & Backend Development</CardTitle>
-                  <CardDescription>
-                    Scalable cloud solutions and app creation
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <Search className="h-6 w-6 mb-2" />
-                  <CardTitle>SEO</CardTitle>
-                  <CardDescription>
-                    Boost your online visibility
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link
+                to="/services/web-development"
+                className="block transition-transform hover:scale-105"
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <Code className="h-6 w-6 mb-2" />
+                    <CardTitle>Website Development</CardTitle>
+                    <CardDescription>
+                      Custom websites tailored to your needs
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link
+                to="/services/tech-consulting"
+                className="block transition-transform hover:scale-105"
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <Laptop className="h-6 w-6 mb-2" />
+                    <CardTitle>Tech Consulting</CardTitle>
+                    <CardDescription>
+                      Expert advice on your tech stack
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link
+                to="/services/cloud-backend-development"
+                className="block transition-transform hover:scale-105"
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <Cloud className="h-6 w-6 mb-2" />
+                    <CardTitle>Cloud & Backend Development</CardTitle>
+                    <CardDescription>
+                      Scalable cloud solutions and app creation
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+
+              <Link
+                to="/services/seo"
+                className="block transition-transform hover:scale-105"
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <Search className="h-6 w-6 mb-2" />
+                    <CardTitle>SEO</CardTitle>
+                    <CardDescription>
+                      Boost your online visibility
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>

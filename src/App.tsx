@@ -2,7 +2,7 @@ import "./App.css";
 import { Suspense, lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./components/root-layout";
-import LandingPage from "./components/landing-page";
+import HomePage from "./routes/home";
 
 // Loading component
 const LoadingSpinner = () => (
@@ -22,13 +22,23 @@ const ThankYouPage = lazy(() => import("./routes/thank-you"));
 const ClientPages = {
   CrockerVentures: lazy(() => import("./routes/clients/crocker-ventures")),
   SublimeEventsDecor: lazy(
-    () => import("./routes/clients/sublime-events-decor")
+    () => import("./routes/clients/sublime-events-decor"),
   ),
   AvalLegal: lazy(() => import("./routes/clients/aval-legal")),
   MassapequaTutor: lazy(() => import("./routes/clients/the-massapequa-tutor")),
   SorensonLegacy: lazy(
-    () => import("./routes/clients/sorenson-legacy-foundation")
+    () => import("./routes/clients/sorenson-legacy-foundation"),
   ),
+};
+
+// Lazy load client pages in a separate chunk
+const ServicesPages = {
+  CloudDev: lazy(() => import("./routes/services/cloud-dev-page")),
+  Seo: lazy(() => import("./routes/services/seo-page")),
+  TechConsulting: lazy(
+    () => import("./routes/services/technical-consulting-page"),
+  ),
+  WebDev: lazy(() => import("./routes/services/web-dev-page")),
 };
 
 function App() {
@@ -39,7 +49,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <LandingPage />,
+          element: <HomePage />,
         },
         {
           path: "/about",
@@ -118,6 +128,38 @@ function App() {
           element: (
             <Suspense fallback={<LoadingSpinner />}>
               <ClientPages.AvalLegal />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/services/web-development",
+          element: (
+            <Suspense fallback={<LoadingSpinner />}>
+              <ServicesPages.WebDev />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/services/tech-consulting",
+          element: (
+            <Suspense fallback={<LoadingSpinner />}>
+              <ServicesPages.TechConsulting />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/services/cloud-backend-development",
+          element: (
+            <Suspense fallback={<LoadingSpinner />}>
+              <ServicesPages.CloudDev />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/services/seo",
+          element: (
+            <Suspense fallback={<LoadingSpinner />}>
+              <ServicesPages.Seo />
             </Suspense>
           ),
         },
