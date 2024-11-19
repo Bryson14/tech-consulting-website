@@ -11,7 +11,7 @@ export default function PageAbout() {
           content="Meet the team behind Smiling Tech Consulting. We're passionate developers and consultants dedicated to creating exceptional digital experiences through custom web solutions."
         />
       </Helmet>
-      <AboutPage />;
+      <AboutPage />
     </>
   );
 }

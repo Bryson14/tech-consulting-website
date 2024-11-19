@@ -2,9 +2,9 @@
 
 ## Deploy
 
-- Build locally, zipped, then dropped into aws amplify [staging site](https://staging.d1sbayr0uz23ik.amplifyapp.com/)
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Build locally and upload to CloudFlare with the Wrangler CLI tool.
+- Install Wrangler globally `pnpm install -g wrangler` and then login with `wrangler login`
+- Run `pnpm run deploy` to build and then deploy the changes
 
 ## Contact Forms
 

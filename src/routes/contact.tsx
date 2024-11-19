@@ -13,7 +13,7 @@ export default function PageContact() {
           content="Have questions about your web project? We're here to help! Reach out for friendly, expert advice on web development, hosting, and digital optimization."
         />
       </Helmet>
-      <ContactPage />;
+      <ContactPage />
     </>
   );
 }

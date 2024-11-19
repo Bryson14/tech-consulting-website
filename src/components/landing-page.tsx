@@ -29,7 +29,7 @@ export default function LandingPage() {
                   <Link to="/contact">Get Started</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <a href="#services">Our Services</a>
+                  <a href="#services">See Our Services</a>
                 </Button>
               </div>
             </div>

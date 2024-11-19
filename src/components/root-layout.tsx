@@ -6,7 +6,7 @@ export default function RootLayout() {
   return (
     <div className="flex flex-col items-center">
       <Header />
-      <Outlet />;
+      <Outlet />
       <ScrollRestoration />
       <Footer />
     </div>

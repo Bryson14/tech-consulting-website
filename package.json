@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,tsx,mdx,html,css,md}\" --cache",
     "preview": "vite preview",
-    "zip": "cd dist && zip -r ../dist.zip . && cd .."
+    "zip": "cd dist && zip -r ../dist.zip . && cd ..",
+    "deploy": "pnpm run build && pnpm run upload",
+    "upload": "wrangler pages deploy dist --project-name=smiling-tech-consulting"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
