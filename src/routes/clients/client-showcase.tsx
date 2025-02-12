@@ -7,6 +7,7 @@ import tmtLogo from "/clients/the-massapequa-tutor/tmt-logo.webp";
 import sorensonLogo from "/clients/sorenson-legacy-foundation/slf-logo.webp";
 import avalLogo from "/clients/aval-legal/aval.webp";
 import { Link } from "react-router-dom";
+import tikcookLogo from "/clients/tikcook-recipes/tikcook-logo.webp";
 
 // Keep existing client data
 const clients = [
@@ -53,6 +54,16 @@ const clients = [
     yearStarted: "2023",
   },
   {
+    id: "tikcook-recipes",
+    name: "TikCook Recipes",
+    Description: "A modern recipe platform with lightning-fast performance",
+    image: tikcookLogo,
+    url: "https://tik-cook-recipes.pages.dev/",
+    tags: ["Community", "Blog"],
+    services: ["Web Development", "Marketing", "Content Management"],
+    yearStarted: "2025",
+  },
+  {
     id: "aval-legal",
     name: "Aval Legal",
     description:
@@ -68,7 +79,7 @@ const clients = [
 const stats = [
   {
     icon: <Building2 className="w-6 h-6" />,
-    value: "5",
+    value: "6",
     label: "Active & Past Clients",
   },
   {

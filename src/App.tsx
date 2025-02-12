@@ -3,7 +3,6 @@ import { Suspense, lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./components/root-layout";
 import HomePage from "./routes/home";
-
 // Loading component
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center min-h-screen">
@@ -29,6 +28,7 @@ const ClientPages = {
   SorensonLegacy: lazy(
     () => import("./routes/clients/sorenson-legacy-foundation"),
   ),
+  TikCookRecipes: lazy(() => import("./components/clients/tikcook-recipes")),
 };
 
 // Lazy load client pages in a separate chunk
@@ -128,6 +128,14 @@ function App() {
           element: (
             <Suspense fallback={<LoadingSpinner />}>
               <ClientPages.AvalLegal />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/clients/tikcook-recipes",
+          element: (
+            <Suspense fallback={<LoadingSpinner />}>
+              <ClientPages.TikCookRecipes />
             </Suspense>
           ),
         },
